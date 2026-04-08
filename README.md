@@ -11,4 +11,4 @@ The third major revamp of Dessieowo.com.
 
 ---
 
-[^1]: Yet announced or implemented. Subject to change or cancelation.
+[^1]: Yet to be announced or implemented. Subject to change or cancelation.
