@@ -1,0 +1,28 @@
+
+/*Layout*/
+body {
+    background-color: #121314;
+    color: aliceblue;
+    min-height: 100vh;
+    margin: 0;
+}
+.notFooter {
+    display:flex;
+    flex:row nowrap;
+}
+aside {
+    background-color: #1a1b1c;
+    border-right: 3px solid #2a2b2c;
+    width:15%;
+    height:100%;
+}
+footer {
+    display:block;
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    margin-bottom:0;
+    background-color: #1a1b1c;
+    border-top: 3px solid #2a2b2c;
+    padding: 5px 10px 2px;
+}
