@@ -8,6 +8,10 @@ const { title } = Astro.props;
 <html lang="en">
 	<Head title = {title}/>
 	<body>
+        <noscript style="background-color: #FF7F7F;;color:black;">
+            <h1>Your browser does not have javascript enabled!</h1>
+            <p>Some features on this site may not work without javascript.</p>
+        </noscript>
 		<div class="notFooter">
 		<Navbar />
 		<main>

@@ -59,13 +59,18 @@ nav a {
     display:block;
     padding:10px 5px 10px;
     background-color:#43404d;
-    border-color:#2a2b2c;
-    border-bottom: 2px;
-    border-top:2px;
+    margin-bottom:3px;
 }
 nav a:hover {
     color: white;
     background-color: black;
+}
+article p {
+    margin-left:50px;
+    margin-right:50px;
+}
+sup {
+    font-size: 8px;
 }
 
 /*Layout*/
