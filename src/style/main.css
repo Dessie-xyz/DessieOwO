@@ -1,20 +1,82 @@
+/*Fonts*/
+@font-face {
+    font-family: argon;
+    font-weight: normal;
+    font-style: normal;
+    src:
+        url(/fonts/MonaspaceArgonNF-Light.woff) format(woff2),
+        url(/fonts/MonaspaceArgonNF-Light.woff) format(woff);
+}
+@font-face {
+    font-family: argon;
+    font-weight: bold;
+    font-style: normal;
+    src:
+        url(/fonts/MonaspaceArgonNF-Bold.woff) format(woff2),
+        url(/fonts/MonaspaceArgonNF-Bold.woff) format(woff);
+}
+@font-face {
+    font-family: argon;
+    font-weight: normal;
+    font-style: italic;
+    src:
+        url(/fonts/MonaspaceArgonNF-LightItalic.woff) format(woff2),
+        url(/fonts/MonaspaceArgonNF-LightItalic.woff) format(woff);
+}
+@font-face {
+    font-family: argon;
+    font-weight: bold;
+    font-style: italic;
+    src:
+        url(/fonts/MonaspaceArgonNF-BoldItalic.woff) format(woff2),
+        url(/fonts/MonaspaceArgonNF-BoldItalic.woff) format(woff);
+}
+@font-face {
+    font-family: xenon;
+    src: 
+        url(/fonts/MonaspaceXenonNF-ExtraBold.woff) format(woff2),
+        url(/fonts/MonaspaceXenonNF-ExtraBold.woff) format(woff);
+}
+
+/*Text elements styling*/
+.mainHeader {
+    width: 100%;
+    text-align: center;
+    font-family: xenon, 'Lucida Sans', monospace;
+    font-size:72px;
+}
+.mainSubheader {
+    width: 100%;
+    text-align: center;
+    font-family: argon, 'Lucida Sans', monospace;
+    font-weight:bold;
+    font-size: 42px;
+}
 
 /*Layout*/
+html,body {
+    height:100%;
+    font-family: argon, 'Lucida Sans', monospace;
+}
 body {
     background-color: #121314;
     color: aliceblue;
-    min-height: 100vh;
     margin: 0;
 }
 .notFooter {
     display:flex;
     flex:row nowrap;
+    height: 100%;
 }
 aside {
     background-color: #1a1b1c;
     border-right: 3px solid #2a2b2c;
     width:15%;
     height:100%;
+}
+main {
+    padding: 10px 20px;
+    width: 100%
 }
 footer {
     display:block;
