@@ -1,7 +1,7 @@
 # DessieOwO 3
 The third major revamp of Dessieowo.com.
 
-> No, I'm not indecisive. You, are!
+> No, I'm not indecisive. You are!
 
 ## Features!
 - Title!
