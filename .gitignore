@@ -35,4 +35,3 @@ pnpm-debug.log*
 # stuff I just dont want to think about rn
 src/data/
 src/pages/r/
-src/layouts/

@@ -52,6 +52,21 @@
     font-weight:bold;
     font-size: 42px;
 }
+nav a {
+    color:aliceblue;
+    text-decoration:none;
+    width:100%;
+    display:block;
+    padding:10px 5px 10px;
+    background-color:#43404d;
+    border-color:#2a2b2c;
+    border-bottom: 2px;
+    border-top:2px;
+}
+nav a:hover {
+    color: white;
+    background-color: black;
+}
 
 /*Layout*/
 html,body {
@@ -73,6 +88,8 @@ aside {
     border-right: 3px solid #2a2b2c;
     width:15%;
     height:100%;
+    overflow-wrap:break-word;
+    overflow:hidden;
 }
 main {
     padding: 10px 20px;

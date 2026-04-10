@@ -1,19 +1,8 @@
 ---
-import Footer from '../components/Footer.astro';
-import Head from '../components/Head.astro';
-import Navbar from '../components/Navbar.astro';
+import Basic from "../layouts/Basic.astro";
 ---
 
-<html lang="en">
-	<Head title = "Home"/>
-	<body>
-		<div class="notFooter">
-		<Navbar />
-		<main>
-			<h1 class="mainHeader">DessieOwO</h1>
-			<p class="mainSubheader">Home of <em>The Barp</em></p>
-		</main>
-		</div>
-		<Footer />
-	</body>
-</html>
+<Basic title="Home">
+	<h1 class="mainHeader">DessieOwO</h1>
+	<p class="mainSubheader">Home of <em>The Barp</em></p>
+</Basic>
