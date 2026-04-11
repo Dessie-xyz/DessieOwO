@@ -52,6 +52,9 @@
     font-weight:bold;
     font-size: 42px;
 }
+h1 {
+    font-family: xenon, 'Lucida Sans', monospace;
+}
 nav a {
     color:aliceblue;
     text-decoration:none;
@@ -76,33 +79,38 @@ sup {
 /*Layout*/
 html,body {
     height:100%;
+    margin:0;
     font-family: argon, 'Lucida Sans', monospace;
 }
 body {
+    position:relative;
     background-color: #121314;
     color: aliceblue;
     margin: 0;
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
 }
 .notFooter {
     display:flex;
     flex:row nowrap;
-    height: 100%;
+    flex:1;
 }
 aside {
     background-color: #1a1b1c;
     border-right: 3px solid #2a2b2c;
     width:15%;
-    height:100%;
     overflow-wrap:break-word;
     overflow:hidden;
 }
 main {
     padding: 10px 20px;
-    width: 100%
+    width: 100%;
+    overflow: visible;
 }
 footer {
     display:block;
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom:0;
     margin-bottom:0;
