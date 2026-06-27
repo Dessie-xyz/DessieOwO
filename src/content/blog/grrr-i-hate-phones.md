@@ -1,5 +1,6 @@
 ---
 title: 'I hate phones.'
+description: 'Here I go with more unhinged ranting ig'
 pubDate: 'June 27 2026'
 ---
 Accessibility has always been a core commitment I have held my nonsense to. But while color contrast and screen reader compatability are one thing, mobile compatability simply makes me angry. Smartphones are a replusive soulless and vile disgrace to technology[^1] and I loathe them with more bile than every liver on earth could ever secrete[^2]. Why should I mutilate my website to allow a *phone user* to get their dirty little screen rubbing fingers all over it‽
