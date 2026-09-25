@@ -1,5 +1,5 @@
 ---
-title: 'I don't like writing blog posts.'
+title: 'I don\'t like writing blog posts.'
 description: 'An Explanation'
 pubDate: 'September 25 2026'
 ---
