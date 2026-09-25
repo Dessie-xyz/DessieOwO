@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # vscode config
 .vscode/
+
+# Plant Blood
+src/content/blog/plant-blood-1.md
