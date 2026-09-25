@@ -27,6 +27,7 @@ const posts = (await getCollection('blog')).sort(
 	<h2 class="mainSubheader">Home of <em>The Barp</em></h2>
 	<hr>
 	<h2>Latest Blog Post</h2>
+	<p>Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.</p>
 	{posts.map((post) => (
     	<a href={`/blog/${post.id}`} class="post-card">
     		<h3 >{post.data.title}</h3><p>({post.data.pubDate.toLocaleDateString()})</p>

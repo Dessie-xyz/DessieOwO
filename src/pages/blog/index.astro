@@ -21,8 +21,9 @@ const posts = (await getCollection('blog')).sort(
 }
 
 </style>
-<Basic title="Blog" description="Dessie's various updates and writings.">
+<Basic title="Blog" description="Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.">
     <h1 class="mainHeader">Blog</h1>
+    <p style="text-align:center;">Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.</p>
       {posts.map((post) => (
     <a href={`/blog/${post.id}`} class="post-card">
       <h2 >{post.data.title}</h2><p>({post.data.pubDate.toLocaleDateString()})</p>
