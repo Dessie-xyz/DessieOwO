@@ -106,6 +106,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    text-wrap:balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .notFooter {
@@ -125,9 +128,6 @@ main {
     padding: 10px 20px;
     width: 100%;
     overflow: visible;
-    text-wrap:balance;
-    overflow-wrap: break-word;
-    hyphens: auto;
 }
 
 footer {
