@@ -126,7 +126,7 @@ main {
     width: 100%;
     overflow: visible;
     text-wrap:balance;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     hyphens: auto;
 }
 
