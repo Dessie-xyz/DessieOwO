@@ -17,7 +17,7 @@
 	"dependencies": {
 		"@astrojs/cloudflare": "^13.5.1",
 		"@astrojs/mdx": "^5.0.6",
-		"@astrojs/sitemap": "^3.7.3",
+		"@astrojs/sitemap": "^3.7.4",
 		"astro": "^6.1.4"
 	},
 	"devDependencies": {
