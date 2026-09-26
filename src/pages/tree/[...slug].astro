@@ -1,0 +1,46 @@
+---
+export const prerender = true;
+
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Basic from "../../layouts/Basic.astro";
+
+export async function getStaticPaths() {
+  const trees = await getCollection('tree');
+  return trees.map((tree) => ({
+    params: { slug: tree.id },
+    props: { tree },
+  }));
+}
+
+type Props = { tree: CollectionEntry<'tree'> };
+const { tree } = Astro.props;
+const { Content } = await render(tree);
+---
+<style>
+  .tree-link {
+    display: block;
+    padding: 2rem;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  .tree-link:hover {
+    background-color: var(--secondary-text-color);
+    color: var(--secondary-bg-color);
+  }
+</style>
+<Basic title={tree.data.title} {...(tree.data.description ? { description: tree.data.description } : {})}>
+  <h1 class="mainHeader">{tree.data.title}</h1>
+  {tree.data.description && <p style="text-align:center;">{tree.data.description}</p>}
+  {tree.data.links.map((link) => (
+    <a href={link.url} class="tree-link" rel="noreferrer" target={link.openInNewTab === false ? "_self" : "_blank"}>
+      <h2>{link.name}</h2>
+      {link.description && <p>&gt;&gt; {link.description}</p>}
+    </a>
+  ))}
+</Basic>

@@ -1,0 +1,12 @@
+{
+    "title": "Side Projects",
+    "description": "I will add more here soon!",
+    "links":[
+        {
+            "name":"Desmos",
+            "description":"My miscellaneous creations in Desmos.",
+            "url":"https://www.dessieowo.com/desmos",
+            "openInNewTab":false
+        }
+    ]
+}

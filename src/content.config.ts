@@ -19,7 +19,22 @@ const redirects = defineCollection({
   })
 });
 
+const tree = defineCollection({
+  loader: glob({base: './src/content/tree', pattern: '**/*.json'}),
+  schema: z.object({ 
+    title: z.string(),
+    description: z.string().optional(),
+    links: z.array( 
+      z.object({
+        name: z.string(),
+        description: z.string().optional(),
+        openInNewTab: z.boolean().optional(),
+        url: z.url()
+      }))})
+});
+
 export const collections = {
   blog,
-  redirects
+  redirects,
+  tree
 };
