@@ -31,17 +31,22 @@ const posts = (await getCollection('blog')).sort(
 <Basic title="Home">
 	<h1 class="mainHeader">DessieOwO</h1>
 	<h2 class="mainSubheader">Home of <em>The Barp</em></h2>
-	<a href="/desmos" class="post-card">
-		<h3>Desmos</h3>
-		<p>My miscellaneous creations in Desmos.</p>
-	</a>
+	<section>
+		<h2>Side Projects</h2>
+		<a href="/desmos" class="post-card">
+			<h3>Desmos</h3>
+			<p>My miscellaneous creations in Desmos.</p>
+		</a>
+	</section>
 	<hr>
-	<h2>Latest Blog Post</h2>
-	<p>Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.</p>
-	{posts.map((post) => (
-    	<a href={`/blog/${post.id}`} class="post-card" style="display:block; margin:0rem;margin-bottom:1rem;text-align:left;">
-    		<h3 >{post.data.title}</h3><p>({post.data.pubDate.toLocaleDateString()})</p>
-    		{post.data.description && <p>&gt;&gt; {post.data.description}</p>}
-    	</a>
-  	))}
+	<section>
+		<h2>Latest Blog Post</h2>
+		<p>Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.</p>
+		{posts.map((post) => (
+    		<a href={`/blog/${post.id}`} class="post-card" style="display:block; margin:0rem;margin-bottom:1rem;text-align:left;">
+    			<h3 >{post.data.title}</h3><p>({post.data.pubDate.toLocaleDateString()})</p>
+    			{post.data.description && <p>&gt;&gt; {post.data.description}</p>}
+    		</a>
+  		))}
+	</section>
 </Basic>
