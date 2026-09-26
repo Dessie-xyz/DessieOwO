@@ -1,0 +1,27 @@
+---
+import Basic from "../layouts/Basic.astro";
+import { Code } from "astro:components";
+---
+<Basic title="Links" description="My 88x31 collection.">
+    <h1 class="mainHeader">Links</h1>
+    <p style="text-align:center;">My 88x31 collection :3</p>
+    <section>
+        <h2>People websites</h2>
+        <a href="https://lyra.horse/" rel="noreferrer" target="_blank"><img alt="badge for lyra.horse" loading="lazy" src="https://lyra.horse/badges/lyra.horse.png"></a>
+        <a href="https://lain.ovh/" target="_blank" rel="noopener noreferrer"><img src="https://lain.ovh/assets/other/88x31.gif" alt="lain.ovh" width="88" height="31"></a>
+    </section>
+    <hr>
+    <section>
+        <h2>My own!</h2>
+        <p>Here is the 88x31 for dessieowo.com:</p>
+        <a href="https://www.dessieowo.com" rel="noreferrer" target="_blank"><img alt="badge for dessieowo.com" loading="lazy" src="https://www.dessieowo.com/88x31.png"></a>
+        <p>If you want to embed it yourself, just add this to your website (click to copy it):</p>
+        <noscript><b>Attention,</b> you do not have javascript enabled on this page. Clicking on the code bellow will not automatically copy it for you.</noscript>
+        <Code id="embedCode" lang="html"  code={`<a href="https://www.dessieowo.com" rel="noreferrer" target="_blank"><img alt="badge for dessieowo.com" loading="lazy" src="https://www.dessieowo.com/88x31.png"></a>`}/>
+        <button id="copyButton">Copy Embed</button>
+        <script>
+            document.getElementById("embedCode")?.addEventListener("click", function(){navigator.clipboard.writeText(`<a href="https://www.dessieowo.com" rel="noreferrer" target="_blank"><img alt="badge for dessieowo.com" loading="lazy" src="https://www.dessieowo.com/88x31.png"></a>`)});
+            document.getElementById("copyButton")?.addEventListener("click", function(){navigator.clipboard.writeText(`<a href="https://www.dessieowo.com" rel="noreferrer" target="_blank"><img alt="badge for dessieowo.com" loading="lazy" src="https://www.dessieowo.com/88x31.png"></a>`)});
+        </script>
+    </section>
+</Basic>

@@ -144,3 +144,8 @@ footer {
 hr {
     color: var(--separator-color);
 }
+
+button {
+    color: var(--secondary-text-color);
+    background-color: var(--secondary-bg-color);
+}
