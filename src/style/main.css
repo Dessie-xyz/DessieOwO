@@ -146,6 +146,17 @@ hr {
 }
 
 button {
+    font-family: firaCode, 'Lucida Sans', monospace;
     color: var(--secondary-text-color);
     background-color: var(--secondary-bg-color);
+    font-size: 1rem;
+    &:hover{
+        color: var(--secondary-bg-color);
+        background-color: var(--secondary-text-color);
+        font-weight: bold;
+    }
+
+}
+main:has(#motionWarning[open]) > :not(#motionWarning) {
+    display: none !important;
 }

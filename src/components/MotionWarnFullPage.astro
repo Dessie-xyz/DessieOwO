@@ -1,0 +1,32 @@
+<style>
+    #motionWarning {
+        background-color: var(--main-bg-color);
+        color: var(--main-text-color);
+        border-color: var(--separator-color);
+        text-align: center;
+        max-width: 75%;
+        margin-top: 10%;
+    }
+    #motionWarning::backdrop {
+        background-color: var(--sidebar-bg-color);
+    }
+    .motionButton {
+        font-family: firaCode, 'Lucida Sans', monospace;
+        color: var(--secondary-text-color);
+        background-color: var(--secondary-bg-color);
+        padding:1rem;
+        border-width:2px;
+        border-color: var(--separator-color);
+        font-size:1rem;
+        &:hover{
+            color: var(--secondary-bg-color);
+            background-color: var(--secondary-text-color);
+        }
+    }
+</style>
+<dialog open id="motionWarning" closedby="closerequest">
+    <h1>Attention</h1>
+    <p>Many elements on this page play automatically. Continuing will cause these animations to display.</p><br>
+    <button class="motionButton" command="close" commandfor="motionWarning">Continue to page</button>
+    <a class="motionButton">Go back</a>
+</dialog>
