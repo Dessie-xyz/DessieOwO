@@ -157,6 +157,6 @@ button {
     }
 
 }
-main:has(#motionWarning[open]) > :not(#motionWarning) {
+main:has(.fullPageWarning[open]) > :not(.fullPageWarning) {
     display: none !important;
 }
