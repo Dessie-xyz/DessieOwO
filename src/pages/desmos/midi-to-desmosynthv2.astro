@@ -1,0 +1,240 @@
+---
+import Basic from "../../layouts/Basic.astro";
+import { Code } from "astro:components";
+---
+<Basic title="Desmos" description="My Desmos creations :3">
+    <h1 id="dessieowo" class="mainHeader">Midi-to-Desmosynth converter python script</h1>
+    <p>Notes:
+        <ul>
+            <li>File names are hard-coded, change them before running.</li>
+            <li>Intended for Desmosynth V2</li>
+            <li>I originally made this as a rough script for personal use. It is only public for reference purposes. Please review it before usage</li>
+            <li>This script will not be maintained, do not expect QOL of life updates. I may add them if someone else makes them.</li>
+            <li>Also available as a <a href="https://gist.github.com/DessieOwO/a9816949eca3a29785e5e46a4a349bee" rel="noreferrer" target="_blank">Github Gist</a></li>
+        </ul>
+        <b>I do not guarantee the suitability of this script for any purpose.</b>
+    </p>
+    <button id="copyButton">Copy Code</button>
+        <script>
+            document.getElementById("copyButton")?.addEventListener("click", function(){navigator.clipboard.writeText(`# Portions of this code have been adjusted from free public sources.
+
+import mido
+import pretty_midi
+
+# Fix File stuff
+raw = mido.MidiFile("file.mid", clip=True) # Change name here (1/3)
+raw.save("file_fixed.mid") # Change name here (3/3)
+
+midi = pretty_midi.PrettyMIDI("file_fixed.mid") # Change name here (3/3) (Also the output file is on line 104)
+
+# Everything else
+tempo_change_times, tempo_change_bpms = midi.get_tempo_changes()
+
+if len(tempo_change_bpms) == 1:
+    bpm_summary = f"BPM: {tempo_change_bpms[0]:.2f} (constant)"
+else:
+    bpm_lines = [f"  At {t:.3f}s: {bpm:.2f} BPM" for t, bpm in zip(tempo_change_times, tempo_change_bpms)]
+    bpm_summary = "BPM changes detected:\n" + "\n".join(bpm_lines)
+
+notes = []
+for instrument in midi.instruments:
+    for note in instrument.notes:
+        notes.append(note)
+notes.sort(key=lambda n: (n.start, n.pitch))
+
+def seconds_to_beats(t_sec):
+    beats = 0.0
+    for i in range(len(tempo_change_times)):
+        seg_start = tempo_change_times[i]
+        seg_end = tempo_change_times[i + 1] if i + 1 < len(tempo_change_times) else t_sec
+        if t_sec <= seg_start:
+            break
+        seg_end = min(seg_end, t_sec)
+        seg_duration = max(0, seg_end - seg_start)
+        bpm = tempo_change_bpms[i]
+        beats += seg_duration * bpm / 60
+    return beats
+
+for note in notes:
+    note.start_16th = seconds_to_beats(note.start) * 4
+    note.end_16th = seconds_to_beats(note.end) * 4
+
+tracks = []
+for note in notes:
+    placed = False
+    for track in tracks:
+        if track[-1].end_16th <= note.start_16th + 1e-6:
+            track.append(note)
+            placed = True
+            break
+    if not placed:
+        tracks.append([note])
+
+total_length = max(note.end_16th for note in notes)
+
+def freq(pitch):
+    return round(440 * 2 ** ((pitch - 69) / 12), 3)
+
+output_lines = []
+for i, track in enumerate(tracks, start=1):
+    pitches = []
+    durations = []
+    cursor = 0  
+
+    for note in track:
+        gap = note.start_16th - cursor
+        if gap > 1e-6:
+            pitches.append(0)
+            durations.append(round(gap, 4))
+        pitches.append(freq(note.pitch))
+        durations.append(round(note.end_16th - note.start_16th, 4))
+        cursor = note.end_16th
+
+    trailing_gap = total_length - cursor
+    if trailing_gap > 1e-6:
+        pitches.append(0)
+        durations.append(round(trailing_gap, 4))
+
+    output_lines.append(f"T_{{{i}p}} = [" + ",".join(str(p) for p in pitches) + "]")
+    output_lines.append(f"T_{{{i}d}} = [" + ",".join(str(d) for d in durations) + "]")
+
+# LaTeX
+extra_lines = []
+for i in range(1, len(tracks) + 1):
+    tp = f"T_{{{i}p}}"
+    td = f"T_{{{i}d}}"
+    extra_lines.append(
+        f"\\operatorname{{tone}}\\left(P(t,{tp},{td}),G(t,{tp},{td})\\right)"
+    )
+    extra_lines.append(
+        f"\\left(\\operatorname{{total}}\\left({td}\\left[1...a-1\\right]\\right),{tp}\\left[a\\right]\\right)"
+        f"\\operatorname{{for}}a=\\left[1...\\operatorname{{length}}\\left({tp}\\right)\\right]"
+    )
+
+output_text = (
+    f"Total tracks needed: {len(tracks)}\n"
+    f"Total length (16ths): {round(total_length,4)}\n"
+    f"{bpm_summary}\n\n"
+    + "\n".join(output_lines)
+    + "\n\n"
+    + "\n".join(extra_lines)
+)
+
+output_filename = "output.txt" # Change file name (optional)
+with open(output_filename, "w") as f:
+    f.write(output_text)
+
+print(f"Done. Wrote {len(tracks)} track(s) to {output_filename}")`)});
+        </script>
+    <Code lang="py" code=`# Portions of this code have been adjusted from free public sources.
+
+import mido
+import pretty_midi
+
+# Fix File stuff
+raw = mido.MidiFile("file.mid", clip=True) # Change name here (1/3)
+raw.save("file_fixed.mid") # Change name here (3/3)
+
+midi = pretty_midi.PrettyMIDI("file_fixed.mid") # Change name here (3/3) (Also the output file is on line 104)
+
+# Everything else
+tempo_change_times, tempo_change_bpms = midi.get_tempo_changes()
+
+if len(tempo_change_bpms) == 1:
+    bpm_summary = f"BPM: {tempo_change_bpms[0]:.2f} (constant)"
+else:
+    bpm_lines = [f"  At {t:.3f}s: {bpm:.2f} BPM" for t, bpm in zip(tempo_change_times, tempo_change_bpms)]
+    bpm_summary = "BPM changes detected:\n" + "\n".join(bpm_lines)
+
+notes = []
+for instrument in midi.instruments:
+    for note in instrument.notes:
+        notes.append(note)
+notes.sort(key=lambda n: (n.start, n.pitch))
+
+def seconds_to_beats(t_sec):
+    beats = 0.0
+    for i in range(len(tempo_change_times)):
+        seg_start = tempo_change_times[i]
+        seg_end = tempo_change_times[i + 1] if i + 1 < len(tempo_change_times) else t_sec
+        if t_sec <= seg_start:
+            break
+        seg_end = min(seg_end, t_sec)
+        seg_duration = max(0, seg_end - seg_start)
+        bpm = tempo_change_bpms[i]
+        beats += seg_duration * bpm / 60
+    return beats
+
+for note in notes:
+    note.start_16th = seconds_to_beats(note.start) * 4
+    note.end_16th = seconds_to_beats(note.end) * 4
+
+tracks = []
+for note in notes:
+    placed = False
+    for track in tracks:
+        if track[-1].end_16th <= note.start_16th + 1e-6:
+            track.append(note)
+            placed = True
+            break
+    if not placed:
+        tracks.append([note])
+
+total_length = max(note.end_16th for note in notes)
+
+def freq(pitch):
+    return round(440 * 2 ** ((pitch - 69) / 12), 3)
+
+output_lines = []
+for i, track in enumerate(tracks, start=1):
+    pitches = []
+    durations = []
+    cursor = 0  
+
+    for note in track:
+        gap = note.start_16th - cursor
+        if gap > 1e-6:
+            pitches.append(0)
+            durations.append(round(gap, 4))
+        pitches.append(freq(note.pitch))
+        durations.append(round(note.end_16th - note.start_16th, 4))
+        cursor = note.end_16th
+
+    trailing_gap = total_length - cursor
+    if trailing_gap > 1e-6:
+        pitches.append(0)
+        durations.append(round(trailing_gap, 4))
+
+    output_lines.append(f"T_{{{i}p}} = [" + ",".join(str(p) for p in pitches) + "]")
+    output_lines.append(f"T_{{{i}d}} = [" + ",".join(str(d) for d in durations) + "]")
+
+# LaTeX
+extra_lines = []
+for i in range(1, len(tracks) + 1):
+    tp = f"T_{{{i}p}}"
+    td = f"T_{{{i}d}}"
+    extra_lines.append(
+        f"\\operatorname{{tone}}\\left(P(t,{tp},{td}),G(t,{tp},{td})\\right)"
+    )
+    extra_lines.append(
+        f"\\left(\\operatorname{{total}}\\left({td}\\left[1...a-1\\right]\\right),{tp}\\left[a\\right]\\right)"
+        f"\\operatorname{{for}}a=\\left[1...\\operatorname{{length}}\\left({tp}\\right)\\right]"
+    )
+
+output_text = (
+    f"Total tracks needed: {len(tracks)}\n"
+    f"Total length (16ths): {round(total_length,4)}\n"
+    f"{bpm_summary}\n\n"
+    + "\n".join(output_lines)
+    + "\n\n"
+    + "\n".join(extra_lines)
+)
+
+output_filename = "output.txt" # Change file name (optional)
+with open(output_filename, "w") as f:
+    f.write(output_text)
+
+print(f"Done. Wrote {len(tracks)} track(s) to {output_filename}")`/>
+
+    
+</Basic>
