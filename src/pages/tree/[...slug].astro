@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import Basic from "../../layouts/Basic.astro";
 
 export async function getStaticPaths() {
@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 
 type Props = { tree: CollectionEntry<'tree'> };
 const { tree } = Astro.props;
-const { Content } = await render(tree);
 ---
 <style>
   .tree-link {
