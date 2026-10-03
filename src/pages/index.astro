@@ -8,23 +8,38 @@ const posts = (await getCollection('blog')).sort(
 ---
 <style>
 .post-card {
-  display: inline-block;
   padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  margin-right: 2rem;
-  margin-left:2rem;
-  margin-bottom: 1rem;
   background-color: var(--secondary-bg-color);
   color: var(--secondary-text-color);
-  border-radius: 8px;
+  border-radius: 1rem;
   text-decoration: none;
   width:fit-content;
-  text-align:center;
+  display:block; 
+  margin:0rem;
+  margin-bottom:1rem;
+  text-align:left;
 }
+
 .post-card:hover {
   background-color: var(--secondary-text-color);
   color: var(--secondary-bg-color);
+}
+
+.linkboxList {
+	display:flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap:5rem;
+}
+
+.linkboxList a {
+	text-align: center;
+	background-color: var(--secondary-bg-color);
+	color: var(--secondary-text-color);
+	padding:1rem;
+	border-radius: 1rem;
 }
 </style>
 
@@ -33,17 +48,19 @@ const posts = (await getCollection('blog')).sort(
 	<h2 class="mainSubheader">Home of <em>The Barp</em></h2>
 	<section>
 		<h2>Side Projects</h2>
-		<a href="/desmos" class="post-card">
-			<h3>Desmos</h3>
-			<p>My miscellaneous creations in Desmos.</p>
-		</a>
+		<div class="linkboxList">
+			<a href="/desmos">
+				<h3>Desmos</h3>
+				<p>My miscellaneous creations in Desmos.</p>
+			</a>
+		</div>
 	</section>
 	<hr>
 	<section>
 		<h2>Latest Blog Post</h2>
 		<p>Mostly just dumb jokes I want to share for whatever reason, but sometimes other stuff.</p>
 		{posts.map((post) => (
-    		<a href={`/blog/${post.id}`} class="post-card" style="display:block; margin:0rem;margin-bottom:1rem;text-align:left;">
+    		<a href={`/blog/${post.id}`} class="post-card" style="">
     			<h3 >{post.data.title}</h3><p>({post.data.pubDate.toLocaleDateString()})</p>
     			{post.data.description && <p>&gt;&gt; {post.data.description}</p>}
     		</a>
