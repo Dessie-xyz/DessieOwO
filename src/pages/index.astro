@@ -36,10 +36,15 @@ const posts = (await getCollection('blog')).sort(
 
 .linkboxList a {
 	text-align: center;
+	text-decoration:none;
 	background-color: var(--secondary-bg-color);
 	color: var(--secondary-text-color);
 	padding:1rem;
 	border-radius: 1rem;
+	&:hover {
+		background-color: var(--secondary-text-color);
+		color: var(--secondary-bg-color);
+	}
 }
 </style>
 

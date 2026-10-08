@@ -96,6 +96,7 @@ body {
     height: 100%;
     margin: 0;
     font-family: firaCode, 'Lucida Sans', monospace;
+    max-width: 100%;
 }
 
 body {
@@ -120,20 +121,20 @@ body {
 .notFooter > header {
     background-color: var(--sidebar-bg-color);
     border-right: 3px solid var(--separator-color);
-    width: 15%;
+    width: 15vw;
     overflow: hidden;
 }
 
 main {
     padding: 10px 20px;
-    width: 100%;
+    width: 85vw;
+    min-width: 0rem;
     overflow: visible;
 }
 
 footer {
     display: block;
     position: relative;
-    width: 100%;
     bottom: 0;
     margin-bottom: 0;
     background-color: var(--sidebar-bg-color);
