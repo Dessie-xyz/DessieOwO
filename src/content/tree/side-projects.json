@@ -4,8 +4,14 @@
     "links":[
         {
             "name":"Desmos",
-            "description":"My miscellaneous creations in Desmos.",
+            "description":"My miscellaneous creations in Desmos",
             "url":"https://www.dessieowo.com/desmos",
+            "openInNewTab":false
+        },
+        {
+            "name":"Writings",
+            "description":"Little things I write when I am bored",
+            "url":"https://www.dessieowo.com/tree/writings",
             "openInNewTab":false
         }
     ]

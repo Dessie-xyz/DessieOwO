@@ -1,0 +1,12 @@
+{
+    "title": "Writings",
+    "description": "This is where I put my weird small written creations that aren't significant enough to be considered a project.",
+    "links":[
+        {
+            "name":"Beetroot",
+            "description":"A proposal to fix a high school theater program",
+            "url":"https://www.dessieowo.com/tree/beetroot-writings",
+            "openInNewTab":false
+        }
+    ]
+}

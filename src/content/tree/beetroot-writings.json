@@ -1,0 +1,18 @@
+{
+    "title": "Beetroot Stuff",
+    "description": "Theater → Beetroot",
+    "links":[
+        {
+            "name":"The Proposal",
+            "description":"A proposal to fix a high school theater program",
+            "url":"https://www.dessieowo.com/writings/beetroot/proposal",
+            "openInNewTab":false
+        },
+        {
+            "name":"First Siege",
+            "description":"News article",
+            "url":"https://www.dessieowo.com/writings/beetroot/cult-siege",
+            "openInNewTab":false
+        }
+    ]
+}

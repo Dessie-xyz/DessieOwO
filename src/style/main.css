@@ -27,6 +27,8 @@
     --secondary-text-color: #050505;
     --link-text-color: #99C1F1;
     --link-visited-color: #E3B9E9;
+    --notice-color: #42110b;
+    --notice-text-color: var(var(--main-text-color));
 }
 
 /*Text elements styling*/
@@ -160,4 +162,11 @@ button {
 }
 main:has(.fullPageWarning[open]) > :not(.fullPageWarning) {
     display: none !important;
+}
+
+.warning {
+    margin:2rem;
+    background-color: var(--notice-color);
+    border: 0.25rem solid var(--separator-color);
+    padding: 0.5rem 2rem;
 }
