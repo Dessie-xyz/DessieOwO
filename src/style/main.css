@@ -28,7 +28,7 @@
     --link-text-color: #99C1F1;
     --link-visited-color: #E3B9E9;
     --notice-color: #42110b;
-    --notice-text-color: var(var(--main-text-color));
+    --notice-text-color: var(--main-text-color);
 }
 
 /*Text elements styling*/
