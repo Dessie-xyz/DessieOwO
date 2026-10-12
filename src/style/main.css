@@ -5,8 +5,8 @@
     font-style: normal;
     font-display: swap;
     src:
-        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.woff2) format("woff2"),
-        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf) format("truetype");
+        url(/fonts/Merriweather-VariableFont.woff2) format("woff2"),
+        url(/fonts/Merriweather-VariableFont.ttf) format("truetype");
 }
 
 @font-face {
