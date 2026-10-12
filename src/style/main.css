@@ -5,16 +5,16 @@
     font-style: normal;
     font-display: swap;
     src:
-        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.woff2) format(woff2),
-        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf) format(ttf);
+        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.woff2) format("woff2"),
+        url(/fonts/Merriweather-VariableFont_opsz,wdth,wght.ttf) format("truetype");
 }
 
 @font-face {
     font-family: firaCode;
     font-display: swap;
     src:
-        url(/fonts/FiraCode-VariableFont_wght.woff2) format(woff2),
-        url(/fonts/FiraCode-VariableFont_wght.ttf) format(ttf);
+        url(/fonts/FiraCode-VariableFont_wght.woff2) format("woff2"),
+        url(/fonts/FiraCode-VariableFont_wght.ttf) format("truetype");
 }
 
 /*Global Colors*/
@@ -116,7 +116,7 @@ body {
 
 .notFooter {
     display: flex;
-    flex: row nowrap;
+    flex-flow: row nowrap;
     flex: 1;
 }
 
@@ -169,4 +169,19 @@ main:has(.fullPageWarning[open]) > :not(.fullPageWarning) {
     background-color: var(--notice-color);
     border: 0.25rem solid var(--separator-color);
     padding: 0.5rem 2rem;
+}
+
+@media (max-width:700px){
+    main {
+        width: 100vw;
+        padding-top:80px
+    }
+    article p, article ul, article ol{
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    .warning {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
 }
