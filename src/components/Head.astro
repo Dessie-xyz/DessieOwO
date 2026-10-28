@@ -4,9 +4,10 @@ import '../style/main.css';
 interface Props {
     title: string;
 	description?: string;
+	canonical?: URL;
 }
 const {description = "The silliest little furry calculator! UwU"} = Astro.props;
-var { title } = Astro.props;
+var { title, canonical } = Astro.props;
 if (title === "Home") {
 	title = "DessieOwO";
 } else {
@@ -48,4 +49,6 @@ if (title === "Home") {
 
 	<!-- Sitemap -->
 	<link rel="sitemap" href="/sitemap-index.xml" type="application/xml" >
+
+	{canonical && <link rel="canonical" href={canonical}>}
 </head>

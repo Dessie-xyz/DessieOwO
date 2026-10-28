@@ -2,15 +2,16 @@
 interface Props {
     title: string;
 	description?: string;
+	canonical?: URL;
 }
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import Navbar from '../components/Navbar.astro';
-const { title, description } = Astro.props;
+const { title, description, canonical } = Astro.props;
 ---
 
 <html lang="en">
-	<Head title = {title} description = {description}/>
+	<Head title = {title} description = {description} canonical={canonical}/>
 	<body>
 		<div class="notFooter">
 		<Navbar />

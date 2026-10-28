@@ -48,7 +48,7 @@ const posts = (await getCollection('blog')).sort(
 }
 </style>
 
-<Basic title="Home">
+<Basic title="Home" canonical={new URL("https://www.dessieowo.com")}>
 	<h1 class="mainHeader">DessieOwO</h1>
 	<h2 class="mainSubheader">Home of <em>The Barp</em></h2>
 	<section>
