@@ -1,0 +1,7 @@
+{
+    "genre":"SciFi",
+    "articles": [ "my", "our", "that", "the", "a", "some" ],
+    "adjectives": [ "large", "big", "small", "tiny", "modern", "futuristic", "corporate", "space", "good", "bad" ],
+    "nouns": [ "spaceship", "alien", "planet", "aircraft carrier", "oil", "DNA", "laser", "robot", "android", "ray", "beam", "blaster", "carbon", "machine", "carbohydrate", "germ", "star", "silicone", "black hole", "computer", "corpse", "worm", "chunk", "sensor", "comrade", "astronaut", "fuel", "lander", "gun", "vodka", "Moscow", "production" ],
+    "actions": [ ["threw", true], ["exploded", true], ["exploded", false], ["died", false], ["dyed", true], ["killed", true], ["crashed", false], ["attacked", true], ["attacked", false], ["flew", false], ["became", true], ["spoke", false], ["studied", false], ["abducted",true], ["abandoned",true], ["drank", true], ["launched",true], ["launched",false], ["has a problem", false], ["skipped",true], ["spontaneously combusted",false], ["defenestrated", true], ["ate", true], ["lied",false], ["sang",false], ["will sing", false], ["is going to explode", false], ["could die", false], ["fought", true], ["observed",true], ["produced", true], ["is up", false] ]
+}

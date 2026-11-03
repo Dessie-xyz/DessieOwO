@@ -1,0 +1,101 @@
+---
+import Basic from "../../../layouts/Basic.astro";
+import NoScript from "../../../components/NoScript.astro";
+---
+<Basic title="Sentence Game">
+    <NoScript />
+    <style>
+        .settings {
+            border: 4px var(--separator-color) solid;
+            & select {
+                background-color: var(--secondary-bg-color);
+                color: var(--secondary-text-color);
+            }
+            & input[type="submit"] {
+                background-color: var(--secondary-bg-color);
+                color: var(--secondary-text-color);
+                padding: 1rem;
+                &:hover {
+                    background-color: var(--secondary-text-color);
+                    color: var(--secondary-bg-color); 
+                }
+            }
+        }
+
+        #sentence {
+            white-space:pre-line;
+        }
+    </style>
+    <h1>Sentence Game (<i>WIP</i>)</h1>
+    <a href="sentence-game/rules">How to play</a>
+    <form class="settings" id="settings">
+        <label for="genre">Choose a genre: </label>
+        <select id="genre" name="genre" required>
+            <option value="scifi">SciFi</option>
+        </select>
+        <br>
+        <label for="senAmount">How many sentences?</label>
+        <input id="senAmount" name="amount" type="number" value="1" min="1" required>
+        <br>
+        <input type="submit" value="Generate">
+    </form>
+    <h1 id="sentence"></h1>
+
+    <script>
+        const settings = document.getElementById("settings") as HTMLFormElement;
+        const sentenceOut = document.getElementById("sentence")!;
+        interface GenreData {
+            articles: string[];
+            adjectives: string[];
+            nouns: string[];
+            actions: [string, boolean][];
+        }
+
+        settings.addEventListener("submit", genSentence);
+
+        async function genSentence(event: SubmitEvent) {
+            event.preventDefault();
+
+            const preferences = new FormData(settings);
+            const genre = preferences.get("genre");
+            const sentenceAmount = Number(preferences.get("amount"));
+
+            let genreData : GenreData;
+            try {
+                const res = await fetch(`/applet/sentence-game/${genre}.json`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                genreData= await res.json();
+            }catch (err) {
+                sentenceOut.textContent = "The word list was not fetched\n " + err;
+                sentenceOut.style.color = "red";
+                return;
+            }
+
+            sentenceOut.textContent = ``;
+            sentenceOut.style.color = "var(--main-text-color)"
+
+            for (let i = 0; i < sentenceAmount; i++){
+                let sen = "";
+                sen += randomItem(genreData.articles);
+                if (Math.random()>0.5) sen += " " + randomItem(genreData.adjectives);
+                sen += " " + randomItem(genreData.nouns);
+
+                const action = randomItem(genreData.actions);
+                sen += " " + action[0];
+                if (action[1]){
+                    sen += " " + randomItem(genreData.articles);
+                    if (Math.random()>0.5) sen += " " + randomItem(genreData.adjectives);
+                    sen += " " + randomItem(genreData.nouns);
+                }
+
+                sen = sen.charAt(0).toUpperCase() + sen.slice(1) + ".\n";
+
+                sentenceOut.textContent += sen;
+            }
+        }
+
+        function randomItem<T>(list: T[]): T{
+            return list[Math.floor(Math.random()*list.length)];
+        }
+    </script>
+</Basic>
