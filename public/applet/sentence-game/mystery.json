@@ -1,0 +1,7 @@
+{
+    "articles": [ "my", "our", "that", "the", "a", "some", "your", "his", "her", "their", "this" ],
+    "adjectives": [ "sneaky", "suspicious", "bloody", "stolen", "dead", "broken", "wealthy", "cowardly", "ill"],
+    "nouns": [ "magnifying glass", "murderer", "knife", "mansion", "body", "lady", "man", "person", "detective", "police", "officer", "spy", "imposter", "corpse", "house", "gun", "wound", "scene", "clue", "dog", "cat", "pet", "musician", "butler", "maid", "manor", "carpet", "doctor", "food"],
+    "actions": [ ["murdered", true], ["was suspicious of", true], ["accused", true], ["was accused of murder", false], ["shot", true], ["stabbed", true], ["was with", true], ["fled from", true], ["lied", false], ["failed", false], ["broke", true], ["found", true], ["heard", true], ["was by", true], ["lied about", true], ["found", true], ["was found", false] ]
+}
+
